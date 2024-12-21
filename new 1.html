@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Define the seasonal images
+        const images = {
+            winter: "https://yourimageurl.com/winter-image.png",
+            spring: "https://yourimageurl.com/spring-image.png",
+            summer: "https://yourimageurl.com/summer-image.png",
+            autumn: "https://yourimageurl.com/autumn-image.png"
+        };
+
+        // Get the current month
+        const month = new Date().getMonth(); // 0 = January, 11 = December
+
+        // Determine the current season
+        let currentSeason;
+        if (month >= 2 && month <= 4) {
+            currentSeason = "spring";
+        } else if (month >= 5 && month <= 7) {
+            currentSeason = "summer";
+        } else if (month >= 8 && month <= 10) {
+            currentSeason = "autumn";
+        } else {
+            currentSeason = "winter";
+        }
+
+        // Display the seasonal image
+        const imgElement = document.createElement("img");
+        imgElement.src = images[currentSeason];
+        imgElement.alt = `Image for ${currentSeason}`;
+        document.body.appendChild(imgElement);
+    </script>
+</body>
+</html>
