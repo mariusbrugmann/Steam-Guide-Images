@@ -6,48 +6,50 @@
     <title>Seasonal Image</title>
     <style>
         body {
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
             background-color: #f0f0f0;
         }
         img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <script>
-        // Define the seasonal images
+        // Define the seasonal images (URL to your GitHub images)
         const images = {
-            winter: "https://yourimageurl.com/winter-image.png",
-            spring: "https://yourimageurl.com/spring-image.png",
-            summer: "https://yourimageurl.com/summer-image.png",
-            autumn: "https://yourimageurl.com/autumn-image.png"
+            winter: "https://yourgithubusername.github.io/yourrepo/winter-image.png",
+            spring: "https://yourgithubusername.github.io/yourrepo/spring-image.png",
+            summer: "https://yourgithubusername.github.io/yourrepo/summer-image.png",
+            autumn: "https://yourgithubusername.github.io/yourrepo/autumn-image.png"
         };
 
         // Get the current month
         const month = new Date().getMonth(); // 0 = January, 11 = December
 
-        // Determine the current season
+        // Determine the current season based on the month
         let currentSeason;
-        if (month >= 2 && month <= 4) {
+        if (month >= 2 && month <= 4) { // March to May = Spring
             currentSeason = "spring";
-        } else if (month >= 5 && month <= 7) {
+        } else if (month >= 5 && month <= 7) { // June to August = Summer
             currentSeason = "summer";
-        } else if (month >= 8 && month <= 10) {
+        } else if (month >= 8 && month <= 10) { // September to November = Autumn
             currentSeason = "autumn";
-        } else {
+        } else { // December to February = Winter
             currentSeason = "winter";
         }
 
-        // Display the seasonal image
+        // Set the image source dynamically
         const imgElement = document.createElement("img");
         imgElement.src = images[currentSeason];
-        imgElement.alt = `Image for ${currentSeason}`;
+        imgElement.alt = `Seasonal Image for ${currentSeason}`;
+
+        // Append the image to the body
         document.body.appendChild(imgElement);
     </script>
 </body>
